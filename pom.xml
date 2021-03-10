@@ -14,6 +14,25 @@
     </parent>
     <name>petclinic</name>
 
+	<developers>
+	
+    <developer>
+      <id>antcammar4</id>
+      <name>Antonio Campuzano Martinez</name>
+      <email>antcammar4@alum.us.es</email>
+      <organization>US</organization>
+      <organizationUrl>https://www.us.es/</organizationUrl>
+      <roles>
+        <role>Developer Team Developer</role>
+      </roles>
+      
+    </developer>
+    
+    
+  	
+  	</developers>
+
+
     <properties>
 
         <!-- Generic properties -->
