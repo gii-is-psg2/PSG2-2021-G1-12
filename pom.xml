@@ -28,7 +28,17 @@
       
     </developer>
     
-    
+    <developer>
+      <id>antoniope33</id>
+      <name>Antonio Pérez Vázquez</name>
+      <email>aperezva32@gmail.com</email>
+      <organization>US</organization>
+      <organizationUrl>https://www.us.es/</organizationUrl>
+      <roles>
+        <role>Developer Team Developer</role>
+      </roles>
+      
+    </developer>
   	
   	</developers>
 
