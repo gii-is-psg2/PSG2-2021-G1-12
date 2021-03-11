@@ -28,6 +28,16 @@
       
     </developer>
     
+    <developer>
+      <id>margarcac1</id>
+      <name>María García Cáceres</name>
+      <email>margarcac1@alum.us.es</email>
+      <organization>US</organization>
+      <organizationUrl>https://www.us.es/</organizationUrl>
+      <roles>
+        <role>Developer Team Developer</role>
+      </roles>
+    </developer>
     
   	
   	</developers>
