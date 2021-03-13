@@ -39,6 +39,17 @@
       </roles>
     </developer>
     
+     <developer>
+      <id>chemi14</id>
+      <name>José Miguel Piñero Zambrana</name>
+      <email>josemi_trobal@hotmail.com</email>
+      <organization>US</organization>
+      <organizationUrl>https://www.us.es/</organizationUrl>
+      <roles>
+        <role>Developer Team Developer</role>
+      </roles>
+    </developer>
+    
     <developer>
       <id>antoniope33</id>
       <name>Antonio Pérez Vázquez</name>
@@ -51,6 +62,7 @@
       
     </developer>
   	
+  
   	</developers>
 
 
