@@ -3,19 +3,32 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.springframework.samples</groupId>
-    <artifactId>spring-petclinic</artifactId>
-    <version>2.2.0.BUILD-SNAPSHOT</version>
+    <groupId>es.us.psg2</groupId>
+    <artifactId>spring-petclinic.psg2.2021-G1-12</artifactId>
+    <version>1.0.0</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.4.RELEASE</version>
     </parent>
-    <name>petclinic</name>
+    <name>PSG2-2021-G1-12 Petclinic</name>
 
 	<developers>
 	
+	<developer>
+      <id>hegriaher</id>
+      <name>Hegoa Ria Herrera</name>
+      <email>hegriaher@alum.us.es</email>
+      <organization>US</organization>
+      <organizationUrl>https://www.us.es/</organizationUrl>
+      <roles>
+      	<role>Scrum Master</role>
+        <role>Developer  Team Developer</role>
+      </roles>
+      
+    </developer>
+    
     <developer>
       <id>antcammar4</id>
       <name>Antonio Campuzano Martinez</name>
