@@ -16,13 +16,23 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Specialty;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.VetService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import net.bytebuddy.asm.Advice.This;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * @author Juergen Hoeller
@@ -60,5 +70,71 @@ public class VetController {
 		vets.getVetList().addAll(this.vetService.findVets());
 		return vets;
 	}
+	
 
+	@GetMapping(value = { "/vets/{id}/edit"})
+	public String editVetCreationForm(Map<String, Object> model,@PathVariable("id") int vetId) {
+		Optional<Vet> veterinarianToEdit_Optional = this.vetService.findVetById(vetId);
+		
+		if(veterinarianToEdit_Optional.isPresent()) {
+			Vet veterinarianToEdit = veterinarianToEdit_Optional.get();
+			
+			model.put("vetToEdit", veterinarianToEdit);
+			model.put("allSpecialties", this.vetService.findAllSpecialities());
+			return "vets/vetEdit";
+		}else {
+			return "vets/vetList";
+		}
+			
+	}
+
+	@PostMapping(value = { "/vets/{id}/edit"})
+	public String editVetPostForm(Map<String, Object> model,@PathVariable("id") int vetId,@RequestParam("Specialties") String specialties,Vet veterinarianUpdated){
+		
+		
+		List<Specialty> SpecialtiesSelected = this.specialtiesParser_deberiaDeIrEnUnFormatter(specialties);
+		for(Specialty s : SpecialtiesSelected) {
+			veterinarianUpdated.addSpecialty(s);
+		}
+		this.vetService.save(veterinarianUpdated);
+		return "redirect:/vets";
+	}
+	
+	@GetMapping(value = { "/vets/create"})
+	public String vetCreationForm(Map<String, Object> model) {
+		
+			
+		model.put("vetToCreate", new Vet());
+		model.put("allSpecialties", this.vetService.findAllSpecialities());
+
+		return "vets/vetCreate";
+		
+	}
+	
+
+	@PostMapping(value = { "/vets/create"})
+	public String vetCreationFormPost(Map<String, Object> model,@RequestParam("Specialties") String specialties,Vet vetToCreate) {
+		
+			
+		List<Specialty> SpecialtiesSelected = this.specialtiesParser_deberiaDeIrEnUnFormatter(specialties);
+		for(Specialty s : SpecialtiesSelected) {
+			vetToCreate.addSpecialty(s);
+		}
+		this.vetService.save(vetToCreate);			
+		return "redirect:/vets";
+	}
+	
+	
+	public List<Specialty> specialtiesParser_deberiaDeIrEnUnFormatter(String text){
+		List<Specialty> res = new ArrayList<Specialty>();
+		
+		String[] specialties = text.split(",");
+		for(int i=0;i<specialties.length;i++) {
+			String stringSpecialty = specialties[i];
+			Specialty specialtyParsed = this.vetService.findSpecialtyByName(stringSpecialty);
+			res.add(specialtyParsed);
+		}
+		
+		return res;
+	}
 }

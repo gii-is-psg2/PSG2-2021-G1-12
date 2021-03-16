@@ -67,12 +67,22 @@ public class Vet extends Person {
 		return Collections.unmodifiableList(sortedSpecs);
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return "Vet [specialties=" + specialties + "]";
+	}
+
 	public int getNrOfSpecialties() {
 		return getSpecialtiesInternal().size();
 	}
 
+	
 	public void addSpecialty(Specialty specialty) {
 		getSpecialtiesInternal().add(specialty);
 	}
-
+	public void addAllSpecialty(List<Specialty> specialty) {
+		getSpecialtiesInternal().addAll(specialty);
+	}
 }

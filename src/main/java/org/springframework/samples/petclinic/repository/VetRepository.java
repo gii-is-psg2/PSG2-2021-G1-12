@@ -16,9 +16,14 @@
 package org.springframework.samples.petclinic.repository;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
+import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 
 /**
@@ -39,5 +44,17 @@ public interface VetRepository extends Repository<Vet, Integer>{
 	 * @return a <code>Collection</code> of <code>Vet</code>s
 	 */
 	Collection<Vet> findAll() throws DataAccessException;
-
+	
+	Optional<Vet> findById(Integer id);
+	
+	void save(Vet veterinarian);
+	
+	@Query("SELECT s FROM Specialty s")
+	List<Specialty> findAllSpecialities();
+	
+	@Query("SELECT s FROM Specialty s WHERE s.name like :name")
+	Specialty findSpecialtyByName(@Param("name") String name);
+	
+	
+	
 }
