@@ -12,14 +12,14 @@
         <div class="form-group has-feedback">
         	 
         	
-            <petclinic:inputField label="First Name" name="firstName"/>
-            <petclinic:inputField label="Last Name" name="lastName"/>
-            <petclinic:selectField name="Specialties" label="Specialties" names="${allSpecialties}" size="3" />
+            <petclinic:inputField label="Nombre" name="firstName"/>
+            <petclinic:inputField label="Apellido" name="lastName"/>
+            <petclinic:selectField name="Specialties" label="especialidades" names="${allSpecialties}" size="3" />
             
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" type="submit">Update Owner</button>
+                <button class="btn btn-default" type="submit">Actualizar dueño</button>
             </div>
         </div>
     </form:form>
