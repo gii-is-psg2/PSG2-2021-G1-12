@@ -67,6 +67,11 @@ public class OwnerService {
 	}
 
 	@Transactional
+	public void deleteOwner(Owner owner) throws DataAccessException {
+		 ownerRepository.delete(owner);
+	}
+	
+	@Transactional
 	public void saveOwner(Owner owner) throws DataAccessException {
 		//creating owner
 		ownerRepository.save(owner);		

@@ -16,6 +16,7 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
@@ -136,5 +137,13 @@ public class VetController {
 		}
 		
 		return res;
+	}
+	
+	
+	@GetMapping("/vets/{vetId}/delete")
+	public String processDeleteVet(@PathVariable("vetId") int vetId) {
+		Vet vet = this.vetService.findRealVetById(vetId);
+		this.vetService.deleteVet(vet);
+		return "redirect:/vets";
 	}
 }

@@ -14,6 +14,7 @@
             <th>Name</th>
             <th>Specialties</th>
             <th>Action</th>
+            <th>Borrar</th>
         </tr>
         </thead>
         <tbody>
@@ -34,9 +35,16 @@
                         <spring:param name="vetId" value="${vet.id}"/>
                     </spring:url>
                     <a href="${fn:escapeXml(vetUrl)}">Edit</a>
-                </td>	
-                
-            </tr>
+          
+    
+                </td>
+					<td><spring:url value="/vets/{vetId}/delete" var="deleteUrl">
+							<spring:param name="vetId" value="${vet.id}" />
+						</spring:url> <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Delete
+							Vet</a>
+						</div></td>
+
+				</tr>
         </c:forEach>
         </tbody>
     </table>
