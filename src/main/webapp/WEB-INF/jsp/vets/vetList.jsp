@@ -6,14 +6,14 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="vets">
-    <h2>Veterinarians</h2>
+    <h2>Veterinarios</h2>
 
     <table id="vetsTable" class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Specialties</th>
-            <th>Action</th>
+            <th>Nombre</th>
+            <th>Especialidades</th>
+            <th>Acción</th>
         </tr>
         </thead>
         <tbody>
@@ -33,7 +33,7 @@
                  <spring:url value="/vets/{vetId}/edit" var="vetUrl">
                         <spring:param name="vetId" value="${vet.id}"/>
                     </spring:url>
-                    <a href="${fn:escapeXml(vetUrl)}">Edit</a>
+                    <a href="${fn:escapeXml(vetUrl)}">Editar</a>
                 </td>	
                 
             </tr>
@@ -44,12 +44,12 @@
     <table class="table-buttons">
         <tr>
             <td>
-                <a href="<spring:url value="/vets.xml" htmlEscape="true" />">View as XML</a>
+                <a href="<spring:url value="/vets.xml" htmlEscape="true" />">Ver como XML</a>
             </td>            
         </tr>
         <tr>
             <td>
-                <a href="<spring:url value="/vets/create" htmlEscape="true" />">Create</a>
+                <a href="<spring:url value="/vets/create" htmlEscape="true" />">Crear</a>
             </td>            
         </tr>
     </table>
