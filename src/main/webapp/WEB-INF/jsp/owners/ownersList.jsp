@@ -13,9 +13,9 @@
         <tr>
             <th style="width: 150px;">Nombre</th>
             <th style="width: 200px;">Dirección</th>
-            <th>City</th>
+            <th>Ciudad</th>
             <th style="width: 120px">Teléfono</th>
-            <th>Pets</th>
+            <th>Mascotas</th>
         </tr>
         </thead>
         <tbody>

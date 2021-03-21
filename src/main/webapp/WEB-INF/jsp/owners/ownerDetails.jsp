@@ -53,7 +53,7 @@
                         <dd><c:out value="${pet.name}"/></dd>
                         <dt>Fecha de cumpleaños</dt>
                         <dd><petclinic:localDate date="${pet.birthDate}" pattern="yyyy-MM-dd"/></dd>
-                        <dt>tipo</dt>
+                        <dt>Tipo</dt>
                         <dd><c:out value="${pet.type.name}"/></dd>
                     </dl>
                 </td>
