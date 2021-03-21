@@ -19,9 +19,10 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" type="submit">Actualizar dueño</button>
+                <button class="btn btn-default" type="submit">Actualizar veterinario</button>
             </div>
-        </div>
+   
     </form:form>
+    
     
 </petclinic:layout>

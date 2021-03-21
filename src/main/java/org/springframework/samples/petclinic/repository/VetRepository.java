@@ -21,6 +21,7 @@ import java.util.Optional;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.samples.petclinic.model.Specialty;
@@ -37,7 +38,7 @@ import org.springframework.samples.petclinic.model.Vet;
  * @author Sam Brannen
  * @author Michael Isvy
  */
-public interface VetRepository extends Repository<Vet, Integer>{
+public interface VetRepository extends CrudRepository<Vet, Integer>{
 
 	/**
 	 * Retrieve all <code>Vet</code>s from the data store.
@@ -46,14 +47,17 @@ public interface VetRepository extends Repository<Vet, Integer>{
 	Collection<Vet> findAll() throws DataAccessException;
 	
 	Optional<Vet> findById(Integer id);
-	
-	void save(Vet veterinarian);
+	Vet findRealById(Integer id);
+	//void save(Vet veterinarian);
 	
 	@Query("SELECT s FROM Specialty s")
 	List<Specialty> findAllSpecialities();
 	
 	@Query("SELECT s FROM Specialty s WHERE s.name like :name")
 	Specialty findSpecialtyByName(@Param("name") String name);
+
+	/*@Query("SELECT vet FROM Vet vet WHERE vet.id =:id")
+	Vet findRealById(Integer idVet);*/
 	
 	
 	

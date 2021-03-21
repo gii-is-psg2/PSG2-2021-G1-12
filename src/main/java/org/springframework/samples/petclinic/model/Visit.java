@@ -15,8 +15,11 @@
  */
 package org.springframework.samples.petclinic.model;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -55,6 +58,7 @@ public class Visit extends BaseEntity {
 	 */
 	@ManyToOne
 	@JoinColumn(name = "pet_id")
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Pet pet;
 
 	/**
