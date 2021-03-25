@@ -13,7 +13,7 @@
         <tr>
             <th>Nombre</th>
             <th>Especialidades</th>
-            <th>AcciÃ³n</th>
+            <th>Acción</th>
             <th>Borrar</th>
 
         </tr>
