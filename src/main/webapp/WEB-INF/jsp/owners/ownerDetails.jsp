@@ -6,7 +6,7 @@
 
 <petclinic:layout pageName="owners">
 
-    <h2>InformaciÃ³n del dueÃ±o</h2>
+    <h2>Información del dueño</h2>
 
 
     <table class="table table-striped">
@@ -15,7 +15,7 @@
             <td><b><c:out value="${owner.firstName} ${owner.lastName}"/></b></td>
         </tr>
         <tr>
-            <th>DirecciÃ³n</th>
+            <th>Dirección</th>
             <td><c:out value="${owner.address}"/></td>
         </tr>
         <tr>
@@ -23,7 +23,7 @@
             <td><c:out value="${owner.city}"/></td>
         </tr>
         <tr>
-            <th>TelÃ©fono</th>
+            <th>Teléfono</th>
             <td><c:out value="${owner.telephone}"/></td>
         </tr>
     </table>
@@ -31,12 +31,12 @@
     <spring:url value="{ownerId}/edit" var="editUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Editar dueÃ±o</a>
+    <a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Editar dueño</a>
 
     <spring:url value="{ownerId}/pets/new" var="addUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">AÃ±adir nueva mascota</a>
+    <a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Añadir nueva mascota</a>
     
     <spring:url value="{ownerId}/bookings" var="bookingsUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
@@ -62,7 +62,7 @@
                     <dl class="dl-horizontal">
                         <dt>Nombre</dt>
                         <dd><c:out value="${pet.name}"/></dd>
-                        <dt>Fecha de cumpleaÃ±os</dt>
+                        <dt>Fecha de cumpleaños</dt>
                         <dd><petclinic:localDate date="${pet.birthDate}" pattern="yyyy-MM-dd"/></dd>
                         <dt>Tipo</dt>
                         <dd><c:out value="${pet.type.name}"/></dd>
@@ -73,7 +73,7 @@
                         <thead>
                         <tr>
                             <th>Fecha de la visita</th>
-                            <th>DescripciÃ³n</th>
+                            <th>Descripción</th>
                         </tr>
                         </thead>
                         <c:forEach var="visit" items="${pet.visits}">
@@ -95,14 +95,14 @@
                                     <spring:param name="ownerId" value="${owner.id}"/>
                                     <spring:param name="petId" value="${pet.id}"/>
                                 </spring:url>
-                                <a href="${fn:escapeXml(visitUrl)}">AÃ±adir Visita</a>
+                                <a href="${fn:escapeXml(visitUrl)}">Añadir Visita</a>
                             </td>
                             <td>
                                 <spring:url value="/owners/{ownerId}/bookings/{petId}/new" var="bookUrl">
                                     <spring:param name="ownerId" value="${owner.id}"/>
                                     <spring:param name="petId" value="${pet.id}"/>
                                 </spring:url>
-                                <a href="${fn:escapeXml(bookUrl)}">Reservar una habitacion</a>
+                                <a href="${fn:escapeXml(bookUrl)}">Reservar una habitación</a>
                             </td>
                         </tr>
                     </table>

@@ -16,19 +16,19 @@ public class BookingValidator implements Validator {
 		LocalDate finish = booking.getFinishDate();
 
 		if(start == null) {
-			errors.rejectValue("startDate", "You must select a valid date", "You must select a valid date");
+			errors.rejectValue("startDate", "Por favor selecciona una fecha", "Por favor selecciona una fecha");
 		}
 
 		if(finish == null) {
-			errors.rejectValue("finishDate", "You must select a valid date", "You must select a valid date");
+			errors.rejectValue("finishDate", "Por favor selecciona una fecha", "Por favor selecciona una fecha");
 		}else {
 
 			if(start.isBefore(LocalDate.now())) {
-				errors.rejectValue("startDate", "The start date of the booking must be later than today's", "The start date of the booking must be later than today's");
+				errors.rejectValue("startDate", "La fecha de inicio debe de ser posterior a la de hoy", "La fecha de inicio debe de ser posterior a la de hoy");
 			}
 
 			if(finish.isBefore(start)) {
-				errors.rejectValue("finishDate", "The finish date of the booking must be set later than the start date", "The finish date of the booking must be set later than the start date");
+				errors.rejectValue("finishDate", "La fecha final debe de ser posterior a la fecha de inicio", "La fecha final debe de ser posterior a la fecha de inicio");
 			}
 		}
 	}

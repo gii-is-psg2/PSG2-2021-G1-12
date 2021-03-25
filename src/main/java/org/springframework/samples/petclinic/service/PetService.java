@@ -73,12 +73,6 @@ public class PetService {
             }else
                 petRepository.save(pet);                
 	}
-
-
-	@Transactional(readOnly = true)
-	public Iterable<Pet> findAll() throws DataAccessException {
-		return petRepository.findAll();
-	}
 	
 	public Collection<Visit> findVisitsByPetId(int petId) {
 		return visitRepository.findByPetId(petId);
