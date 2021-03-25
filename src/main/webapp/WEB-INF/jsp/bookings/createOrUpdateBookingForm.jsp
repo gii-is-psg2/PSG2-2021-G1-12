@@ -16,13 +16,13 @@
     </jsp:attribute>
     <jsp:body>
         <h2>
-            New Booking
+            Nueva Reserva
         </h2>
         <form:form modelAttribute="booking" class="form-horizontal" action="/owners/${ownerId}/bookings/${pet.id}/new">
             <input type="hidden" name="id" value="${booking.id}"/>
             <div class="form-group has-feedback">
                 <div class="form-group">
-                    <label class="col-sm-2 control-label">Pet</label>
+                    <label class="col-sm-2 control-label">Mascota</label>
                     <div class="col-sm-10">
                         <c:out value="${pet.name}"/>
                     </div>
@@ -33,7 +33,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                	<button class="btn btn-default" type="submit">Confirm Booking</button>
+                	<button class="btn btn-default" type="submit">Confirmar Reserva</button>
                 </div>
             </div>
         </form:form>

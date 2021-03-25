@@ -41,7 +41,7 @@
     <spring:url value="{ownerId}/bookings" var="bookingsUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(bookingsUrl)}" class="btn btn-default">My bookings</a>
+    <a href="${fn:escapeXml(bookingsUrl)}" class="btn btn-default">Mis reservas</a>
 
     <br/>
     <br/>
@@ -96,7 +96,7 @@
                                     <spring:param name="ownerId" value="${owner.id}"/>
                                     <spring:param name="petId" value="${pet.id}"/>
                                 </spring:url>
-                                <a href="${fn:escapeXml(bookUrl)}">Book a Room</a>
+                                <a href="${fn:escapeXml(bookUrl)}">Reservar una habitacion</a>
                             </td>
                         </tr>
                     </table>

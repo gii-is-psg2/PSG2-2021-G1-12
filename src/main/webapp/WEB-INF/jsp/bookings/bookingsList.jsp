@@ -11,11 +11,11 @@
     <table id="ownersTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;">Pet</th>
-            <th style="width: 150px;">Owner</th>
-            <th style="width: 200px;">Start Date</th>
-            <th style="width: 120px">Finish Date</th>
-            <th>Actions</th>
+            <th style="width: 150px;">Mascota</th>
+            <th style="width: 150px;">Dueño</th>
+            <th style="width: 200px;">Comienzo de la reserva</th>
+            <th style="width: 120px">Fin de la reserva</th>
+            <th>Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -41,7 +41,7 @@
                         <spring:param name="ownerId" value="${booking.pet.owner.id}"/>
                         <spring:param name="bookingId" value="${booking.id}"/>
                     </spring:url>
-                    <a href="${fn:escapeXml(deleteUrl)}"><c:out value="Delete Booking"/></a>
+                    <a href="${fn:escapeXml(deleteUrl)}"><c:out value="Borrar reserva"/></a>
                 </td>  
             </tr>
         </c:forEach>
