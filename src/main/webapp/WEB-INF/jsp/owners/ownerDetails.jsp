@@ -46,7 +46,7 @@
     <spring:url value="/owners/{ownerId}/delete" var="deleteUrl">
         <spring:param name="ownerId" value="${owner.id}"/>
     </spring:url>
-    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Delete Owner</a>
+    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Borrar dueño</a>
 
 
     <br/>

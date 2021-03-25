@@ -17,7 +17,7 @@
             <petclinic:inputField label="Dirección" name="address"/>
             <petclinic:inputField label="Ciudad" name="city"/>
             <petclinic:inputField label="Teléfono" name="telephone"/>
-            <petclinic:inputField label="Nombre" name="user.username"/>
+            <petclinic:inputField label="Nombre de usuario" name="user.username"/>
             <petclinic:inputField label="Contraseña" name="user.password"/>
         </div>
         <div class="form-group">
