@@ -73,8 +73,7 @@ public class PetService {
             }else
                 petRepository.save(pet);                
 	}
-
-
+	
 	public Collection<Visit> findVisitsByPetId(int petId) {
 		return visitRepository.findByPetId(petId);
 	}
