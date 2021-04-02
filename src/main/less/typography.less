@@ -21,17 +21,37 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'philosopher';
+  src: url('../fonts/Philosopher-Regular.ttf') format('truetype'),
+	   url('../fonts/Philosopher-Bold.ttf') format('truetype'),
+	   url('../fonts/Philosopher-BoldItalic.ttf') format('truetype'),
+	   url('../fonts/Philosopher-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'times';
+  src: url('../fonts/TIMES.TTF') format('truetype'),
+	   url('../fonts/TIMESBD.TTF') format('truetype'),
+	   url('../fonts/TIMESBI.TTF') format('truetype')
+	   url('../fonts/TIMESI.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body, h1, h2, h3, p, input {
   margin: 0;
   font-weight: 400;
-  font-family: "varela_roundregular", sans-serif;
+  font-family: "times", sans-serif;
   color: #34302d;
 }
 
 h1 {
   font-size: 24px;
   line-height: 30px;
-  font-family: "montserratregular", sans-serif;
+  font-family: "philosopher", sans-serif;
 }
 
 h2 {
@@ -39,7 +59,7 @@ h2 {
   font-weight: 700;
   line-height: 24px;
   margin-bottom: 10px;
-  font-family: "montserratregular", sans-serif;
+  font-family: "philosopher", sans-serif;
 }
 
 h3 {
@@ -56,5 +76,5 @@ p {
 
 strong {
   font-weight: 700;
-  font-family: "montserratregular", sans-serif;
+  font-family: "philosopher", sans-serif;
 }

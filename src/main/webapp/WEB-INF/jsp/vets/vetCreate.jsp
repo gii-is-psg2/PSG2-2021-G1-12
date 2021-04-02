@@ -10,14 +10,14 @@
     
     <form:form modelAttribute="vetToCreate" class="form-horizontal" id="add-owner-form" action="/vets/create">
         <div class="form-group has-feedback">
-            <petclinic:inputField label="First Name" name="firstName"/>
-            <petclinic:inputField label="Last Name" name="lastName"/>
-            <petclinic:selectField name="Specialties" label="Specialties" names="${allSpecialties}" size="3" />
+            <petclinic:inputField label="Nombre" name="firstName"/>
+            <petclinic:inputField label="Apellido" name="lastName"/>
+            <petclinic:selectField name="Specialties" label="especialidades" names="${allSpecialties}" size="3" />
             
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" type="submit">Create Vet</button>
+                <button class="btn btn-default" type="submit">crear veterinario</button>
             </div>
         </div>
     </form:form>

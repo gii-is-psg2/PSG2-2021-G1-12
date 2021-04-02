@@ -74,4 +74,13 @@ public class VetService {
 	public Specialty findSpecialtyByName(String name) {
 		return this.vetRepository.findSpecialtyByName(name);
 	}
+	
+	@Transactional
+	public void deleteVet(Vet vet) throws DataAccessException {
+		 vetRepository.delete(vet);
+	}
+	
+	public Vet findRealVetById(Integer idVet){
+		return this.vetRepository.findRealById(idVet);
+	}
 }
