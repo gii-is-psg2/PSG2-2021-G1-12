@@ -35,7 +35,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day           | margarcac1  | antcammar  | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
 | 09/04/2021         | :smile:        |   :smile:              |                |                |                |                |
-| 14/04/2021        |     :smile:     |               |                |                |                |                |
-| Day 3         |               |    :worried:            |                |                |                |                |
-| Day 4         |               |    :smile:            |                |                |                |                |
+| 14/04/2021        |     :smile:     |     :worried:          |                |                |                |                |
+| 14/04/2021         |             |    :smile:            |                |                |                |                |
+| Day 4         |               |                |                |                |                |                |
 ...
