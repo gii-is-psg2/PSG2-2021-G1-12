@@ -32,10 +32,10 @@ In the retrospective meeting, the team has a discussion about those results.
 
 ## Sprint Template
 
-| Day           | margarcac1  | antcammar  | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
+| Day           | margarcac1  | antcammar  | hegriaher     | [Member D]     | [Member E]     | [Member F]     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
-| 09/04/2021         | :smile:        |   :smile:              |                |                |                |                |
-| 14/04/2021        |     :smile:     |     :worried:          |                |                |                |                |
-| 15/04/2021         |             |    :smile:            |                |                |                |                |
+| 09/04/2021         | :smile:        |   :smile:              |   :neutral_face:             |                |                |                |
+| 14/04/2021        |     :smile:     |     :worried:          |   -             |                |                |                |
+| 15/04/2021         |             |    :smile:            |      :smiley:          |                |                |                |
 | Day 4         |               |                |                |                |                |                |
 ...
