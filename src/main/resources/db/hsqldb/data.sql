@@ -88,3 +88,11 @@ INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (2, 2, '2021-04-16
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (3, 5, '2021-10-1', '2021-10-18');
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (4, 7, '2021-07-10', '2021-07-14');
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (5, 13, '2021-04-22', '2021-05-8');
+
+INSERT INTO causes(id,name,description,budget_target,organisation,active) VALUES (1,'Cause 1', 'Descripcion cause 1',27185.32, 'Organisation 1' ,true);
+INSERT INTO causes(id,name,description,budget_target,organisation,active) VALUES (2, 'Cause 2','Descripcion cause 2', 78637.52, 'Organisation 2' ,true);
+INSERT INTO causes(id,name,description,budget_target,organisation,active) VALUES (3, 'Cause 3','Descripcion cause 3', 36424.12, 'Organisation 3' ,true);
+INSERT INTO causes(id,name,description,budget_target,organisation,active) VALUES (4, 'Cause 4', 'Descripcion cause 4',87932.21,'Organisation 4' , true);
+INSERT INTO causes(id,name,description,budget_target,organisation,active) VALUES (5, 'Cause 5','Descripcion cause 5', 87543.52, 'Organisation 5' ,true);
+
+
