@@ -20,31 +20,31 @@
         </thead>
         <tbody>
         <c:forEach items="${listCauses}" var="cause">
-            <c:if test = "${cause.active}">
+            
             <tr>
                 <td>
                     <c:out value="${cause.name}"/>
                 </td>
                 <td>
-                    <c:out value="Falta donations"/>
+                    <c:out value="${cause.budgetAchieved}"/>
                 </td>
                 <td>
                     <c:out value="${cause.budgetTarget}"/>
                 </td>
                 <td>
-                    <spring:url value="/causes/{causeId}/donation" var="donationUrl">
+                <c:if test = "${cause.active}">
+                    <spring:url value="/causes/{causeId}/donate" var="donationUrl">
                         <spring:param name="causeId" value="${cause.id}"/>
                     </spring:url>
                     <a href="${fn:escapeXml(donationUrl)}"><c:out value="Hacer donacion"/></a>
+                </c:if>
                 
                     <spring:url value="/causes/{causeId}/details" var="detailsUrl">
                         <spring:param name="causeId" value="${cause.id}"/>
                     </spring:url>
                     <a href="${fn:escapeXml(detailsUrl)}"><c:out value="Ver detalles"/></a>
                 </td>   
-            </tr>
-            
-		</c:if>
+            </tr>		
 		</c:forEach>
         </tbody>
     </table>
