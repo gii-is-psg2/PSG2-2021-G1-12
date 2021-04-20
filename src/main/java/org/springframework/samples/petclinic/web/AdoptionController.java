@@ -57,5 +57,11 @@ public class AdoptionController {
 		}
     	return VIEWS_DESCRIPTION ;
     }
-  
+    
+    @GetMapping(value="/adoptions/new")
+    public String newAdoption(ModelMap model) {
+		Adoption adoption =new Adoption();
+		model.put("Adoption", adoption);
+		return VIEWS_DESCRIPTION ;
+	}
 }
