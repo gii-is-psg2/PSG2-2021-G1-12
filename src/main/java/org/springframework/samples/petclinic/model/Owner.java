@@ -67,12 +67,10 @@ public class Owner extends Person {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
 	private Set<Pet> pets;
 	
-	//
 	@OnDelete(action = OnDeleteAction.CASCADE) 
 	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "username", referencedColumnName = "username")
 	private User user;
-	//
 	
 	public String getAddress() {
 		return this.address;

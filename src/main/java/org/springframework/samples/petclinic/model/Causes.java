@@ -1,7 +1,11 @@
 package org.springframework.samples.petclinic.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -19,7 +23,6 @@ public class Causes extends NamedEntity{
 	@NotNull
 	private Double budgetTarget;
 	
-	
 	@Column(name = "organisation")
 	@NotEmpty
 	private String organisation;
@@ -27,7 +30,13 @@ public class Causes extends NamedEntity{
 	@Column(name = "active")
 	@NotNull
 	private Boolean active;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cause")
+	private Set<Donation> donations;
 
+	@Column(name = "budget_achieved")
+	private Double budgetAchieved;
+	
 	public String getDescription() {
 		return description;
 	}
@@ -58,6 +67,24 @@ public class Causes extends NamedEntity{
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public Set<Donation> getDonations() {
+		return donations;
+	}
+
+	public void setDonations(Set<Donation> donations) {
+		this.donations = donations;
+	}
+
+	public Double getBudgetAchieved() {
+		return budgetAchieved;
+	}
+
+	public void setBudgetAchieved(Double budgetAchieved) {
+		this.budgetAchieved = budgetAchieved;
+		if(this.budgetAchieved >= this.budgetTarget)
+			setActive(false);
 	}
 
 	@Override

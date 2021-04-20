@@ -14,6 +14,7 @@
             <th style="width: 150px;">Nombre</th>
             <th style="width: 150px;">Descripcion</th>
             <th style="width: 200px;">Objetivo</th>
+            <th style="width: 200px;">Total Recaudado</th>
             <th style="width: 200px;">Organizacion</th>
            
         </tr>
@@ -28,6 +29,9 @@
                 </td>
                 <td>
                     <c:out value="${cause.budgetTarget}"/>
+                </td>
+                <td>
+                    <c:out value="${cause.budgetAchieved}"/>
                 </td>
                 <td>
                     <c:out value="${cause.organisation}"/>
@@ -48,21 +52,20 @@
            
         </tr>
         </thead>
-<!--         <tbody> -->
-<!--             <tr> -->
-<!--                 <td> -->
-<%--                     <c:out value="${cause.name}"/> --%>
-<!--                 </td> -->
-<!--                 <td> -->
-<%--                     <c:out value="${cause.description}"/> --%>
-<!--                 </td> -->
-<!--                 <td> -->
-<%--                     <c:out value="${cause.budgetTarget}"/> --%>
-<!--                 </td> -->
-<!--                 <td> -->
-<%--                     <c:out value="${cause.organisation}"/> --%>
-<!--                 </td>    -->
-<!--             </tr> -->
-<!--         </tbody> -->
+         <tbody> 
+           <c:forEach items="${donations}" var="donation">
+             <tr> 
+                 <td> 
+                     <c:out value="${donation.date}"/> 
+                 </td> 
+                 <td> 
+                     <c:out value="${donation.amount}"/> 
+                 </td> 
+                 <td> 
+                     <c:out value="${donation.user.username}"/> 
+                 </td>     
+             </tr>
+             </c:forEach> 
+         </tbody>
     </table>
 </petclinic:layout>
