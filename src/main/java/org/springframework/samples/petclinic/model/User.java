@@ -1,5 +1,7 @@
 package org.springframework.samples.petclinic.model;
 
+import java.awt.event.FocusEvent.Cause;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -23,6 +25,9 @@ public class User{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Donation> donations;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private Set<Causes> causes;
 	
 	public String getUsername() {
 		return username;
@@ -52,4 +57,5 @@ public class User{
 	public void setEnabled(boolean value) {
 		this.enabled=value;
 	}
+	
 }

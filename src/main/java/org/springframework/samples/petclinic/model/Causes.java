@@ -5,6 +5,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -34,6 +35,9 @@ public class Causes extends NamedEntity{
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "cause")
 	private Set<Donation> donations;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	private User user;
+	
 	@Column(name = "budget_achieved")
 	private Double budgetAchieved;
 	
@@ -85,6 +89,11 @@ public class Causes extends NamedEntity{
 		this.budgetAchieved = budgetAchieved;
 		if(this.budgetAchieved >= this.budgetTarget)
 			setActive(false);
+	}
+	
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

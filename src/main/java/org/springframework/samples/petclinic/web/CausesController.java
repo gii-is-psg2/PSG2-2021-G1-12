@@ -17,7 +17,9 @@ import org.springframework.samples.petclinic.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -38,6 +40,11 @@ public class CausesController {
 		this.ownerService = ownerService;
 	}
 	
+	@InitBinder("cause")
+	public void initGerenteBinder(WebDataBinder dataBinder) {
+		dataBinder.setValidator(new CausesValidator());
+	}
+
 	
 	@GetMapping(value = "/causes")
 	public String causesListing(ModelMap model) {
@@ -87,4 +94,36 @@ public class CausesController {
 			return "redirect:/causes/{causeId}/details";
 		}
 	}
+	
+	@GetMapping(value = "/causes/create")
+	public String initCreateCausesForm(ModelMap model) {
+		
+		model.put("causes", new Causes());
+		return "causes/createCause";
+	}
+	
+	@PostMapping(value = "/causes/create")
+	public String finishCreateCausesForm(@Valid Causes cause,BindingResult result,ModelMap model) {
+		
+		if(result.hasErrors()) {
+			System.out.println(result);
+			
+			return "causes/createCause";
+		}
+		
+		
+		User userSession = this.userService.getUserSession();
+		
+		
+		cause.setUser(userSession);
+		cause.setBudgetAchieved(0.0);
+		cause.setActive(true);
+		this.userService.saveUser(userSession);
+
+		this.causeService.save(cause);
+		
+		return "redirect:/causes";
+	}
+	
+	
 }
