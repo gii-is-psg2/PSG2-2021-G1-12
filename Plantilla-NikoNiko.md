@@ -34,7 +34,7 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | margarcac1    | antcammar    | hegriaher     | antoniope33     |
 | ------------- | ------------- | ------------ | ------------- | -------------   |
-| 09/04/2021    | :smile:       |  :smile:     |:neutral_face: |  :smiley        |
+| 09/04/2021    | :smile:       |  :smile:     |:neutral_face: |  :smiley:       |
 | 14/04/2021    |     :smile:   |  :worried:   |   -           |       -         |
 | 15/04/2021    |    :smile:    |  :smile:     | :smiley:      |     :smiley:    |
 | 16/04/2021    |:neutral_face: |  :worried:   |:neutral_face: |    :worried:    |
