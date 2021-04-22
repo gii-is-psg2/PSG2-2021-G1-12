@@ -22,12 +22,12 @@ public class AdoptionRequestService {
 	public AdoptionRequest findAdoptionRequestById(int id) throws DataAccessException {
 		return adoptionRequestRepository.findById(id);
 	}
-
+	@Transactional
 	public void saveAdoptionRequest(AdoptionRequest petSeraAdoptada) {
 		this.adoptionRequestRepository.save(petSeraAdoptada);
 		
 	}
-
+	@Transactional
 	public List<AdoptionRequest> findAll() {
 		return this.adoptionRequestRepository.findAll();
 	}

@@ -24,8 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class AdoptionController {
 	private static final String VIEWS_DESCRIPTION = "adoptions/adoptionEdit";
 	private static final String OWNERS_DETAILS="owners/ownerDetails";
-	private static final String ADOPTION_LIST="adoptions/adoptionsList";
-
+	private static final String ADOPTION = "/adoptions";
 	
 	private final PetService petService;
     private final AdoptionService adoptionService;
@@ -49,27 +48,39 @@ public class AdoptionController {
 	
 	@GetMapping(value="/adoptions/{adoptionId}/adoption")
 	public String anyadirDescripcion(@Valid Adoption adoption, BindingResult result,@PathVariable("adoptionId") int adoptionId, ModelMap model) {
+		Adoption a=this.adoptionService.findAdoptionById(adoptionId);
 		Pet petSeraAdoptada =this.adoptionService.findAdoptionById(adoptionId).getPet();
-        final AdoptionRequest adopreq= new AdoptionRequest();
-        User user = userService.getUserSession();
-        Owner owner = ownerService.findOwnerByUser(user.getUsername());
-        adopreq.setOwner(owner);
-        model.addAttribute("adoptionToEdit",adopreq);
+		AdoptionRequest adopreq= new AdoptionRequest();
+        
+        
+        model.addAttribute("adoption", a);
+        model.addAttribute("adoptionRequest",adopreq);
         model.addAttribute("pet", petSeraAdoptada);
 		return VIEWS_DESCRIPTION ;
 	}
     
+	
     @PostMapping(value="/adoptions/{adoptionId}/adoption")
-	public String solicitudAdopcion(@Valid AdoptionRequest adoptionRequest, BindingResult result,@PathVariable("adoptionId") int adoptionId, ModelMap model) {
+	public String solicitudAdopcion(@Valid AdoptionRequest adoptionRequest, BindingResult result,@PathVariable("adoptionId") int adoptionId, ModelMap model) {	
+		Adoption a=this.adoptionService.findAdoptionById(adoptionId);
+    	Pet petSeraAdoptada = a.getPet();
+       
+    	User user = userService.getUserSession();
+        String u1=user.getUsername(); 
+        Owner owner = ownerService.findOwnerByUserName(u1);
+        adoptionRequest.setOwner(owner);
+        System.out.println(owner);
+        adoptionRequest.setAdoption(a);
+    	
     	if (result.hasErrors()) {
-			model.put("adoptionToEdit", adoptionRequest);
+    		model.addAttribute("adoptionRequest",adoptionRequest);
+            model.addAttribute("pet", petSeraAdoptada);
 			return VIEWS_DESCRIPTION;
 		}
 		else {
-        	model.addAttribute(adoptionRequest);
         	this.adoptionRequestService.saveAdoptionRequest(adoptionRequest);
 		}
-    	return VIEWS_DESCRIPTION ;
+    	return "redirect:"+ADOPTION ;
     }
     
     @GetMapping(value="/owners/{ownerId}/pets/{petId}/adoptions/new")

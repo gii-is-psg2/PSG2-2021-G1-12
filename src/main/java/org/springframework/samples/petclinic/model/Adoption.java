@@ -42,5 +42,10 @@ public class Adoption extends BaseEntity {
 		this.owner = owner;
 	}
 
+	@Override
+	public String toString() {
+		return "Adoption [pet=" + pet + ", owner=" + owner + ", adoptionRequest=" + adoptionRequest + "]";
+	}
+
 
 }

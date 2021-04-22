@@ -63,7 +63,7 @@ public interface OwnerRepository extends CrudRepository<Owner, Integer> {
 	public Owner findById(@Param("id") int id);
 	
 	
-	public Owner findOwnerByUser(String user);
+	public Owner findOwnerByUserUsername(String user);
 
 	
 }

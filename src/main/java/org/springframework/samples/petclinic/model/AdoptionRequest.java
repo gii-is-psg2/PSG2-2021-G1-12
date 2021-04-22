@@ -3,6 +3,7 @@ package org.springframework.samples.petclinic.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -13,15 +14,15 @@ import javax.validation.constraints.NotNull;
 @Table(name = "adoptionRequest")
 public class AdoptionRequest extends BaseEntity {
 	
-	@JoinColumn(name = "owner_id")
-	@ManyToOne
+	@JoinColumn(name = "owner")
+	@ManyToOne(fetch = FetchType.EAGER)
+
 	private Owner owner;
 	
 	@Column(name = "description")
-	@NotNull
-	private String descripcion;
+	private String description;
 	
-	@ManyToOne (cascade = CascadeType.ALL)
+	@ManyToOne (cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinColumn(name = "adoption")
 	private Adoption adoption;
 
@@ -33,12 +34,13 @@ public class AdoptionRequest extends BaseEntity {
 		this.owner = owner;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Adoption getAdoption() {
@@ -51,7 +53,7 @@ public class AdoptionRequest extends BaseEntity {
 
 	@Override
 	public String toString() {
-		return "AdoptionRequest [owner=" + owner + ", descripcion=" + descripcion + ", adoption=" + adoption + "]";
+		return "AdoptionRequest [owner=" + owner + ", descripcion=" + description + ", adoption=" + adoption + "]";
 	}
 	
 	
