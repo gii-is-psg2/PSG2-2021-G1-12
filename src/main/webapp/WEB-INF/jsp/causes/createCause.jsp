@@ -6,28 +6,26 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <petclinic:layout pageName="bookings">
-<jsp:attribute name="customScript">
-    </jsp:attribute>
-    <jsp:body>
+
         <h2>
-            Nueva Donacion
+            Nueva Causa
         </h2>
-        <form:form modelAttribute="donation" class="form-horizontal" action="/causes/${causeId}/donate">
-            <input type="hidden" name="id" value="${donation.id}"/>
+        
+        <form:form modelAttribute="causes" class="form-horizontal" action="/causes/create">
+
+                 <input type="hidden" name="active" value="true"/>
             
-            
-            
-            <div class="form-group has-feedback">
-                <input type="hidden" name="cause" value="${causeId}"/>
-                
-					<spring:bind path="amount">
+                <petclinic:inputField label="Nombre" name="name"/>
+                <petclinic:inputField label="Descripcion" name="description"/>
+
+ 				<spring:bind path="budgetTarget">
                        <c:set var="cssGroup" value="form-group ${status.error ? 'has-error' : '' }"/>
                     <c:set var="valid" value="${not status.error and not empty status.actualValue}"/>
                     <div class="${cssGroup}">
-                        <label class="col-sm-2 control-label">Cantidad a donar</label>
+                        <label class="col-sm-2 control-label">Cantidad a recaudar</label>
 
                         <div class="col-sm-10">
-                            <input type="number" name="amount" value="${donation.amount}" step="0.01">
+                            <input type="number" name="budgetTarget" value="${cause.budget}" step="0.01">
                                <c:if test="${valid}">
                                    <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
                             </c:if>
@@ -37,15 +35,23 @@
                             </c:if>
                         </div>
                     </div>
-                   </spring:bind>            
-                   
-                   </div>
-            
+                   </spring:bind>	
+
+
+
+                <petclinic:inputField label="Organizacion" name="organisation"/>
+           
+          
+           
+           
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                	<button class="btn btn-default" type="submit">Confirmar Donacion</button>
+                	<button class="btn btn-default" type="submit">Confirmar</button>
                 </div>
             </div>
+            
+            
+            
         </form:form>
-    </jsp:body>
+        
 </petclinic:layout>

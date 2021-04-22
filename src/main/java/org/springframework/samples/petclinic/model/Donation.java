@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -18,6 +19,7 @@ public class Donation extends BaseEntity{
 	
 	@Column(name = "amount")
 	@NotNull
+	@Min(value=1, message = "Tiene que ser mayor que 1 y sin letras")
 	private Double amount;
 	
 	@ManyToOne

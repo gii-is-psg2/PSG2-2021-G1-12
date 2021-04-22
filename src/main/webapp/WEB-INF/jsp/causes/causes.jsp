@@ -48,4 +48,6 @@
 		</c:forEach>
         </tbody>
     </table>
+                            <a href="<spring:url value="/causes/create" htmlEscape="true" />">Crear</a>
+    
 </petclinic:layout>

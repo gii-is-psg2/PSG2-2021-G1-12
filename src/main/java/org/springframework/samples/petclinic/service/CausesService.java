@@ -19,6 +19,7 @@ public class CausesService {
 	@Autowired
 	private CausesRepository causesRepository;	
 	
+	@Transactional
 	public void save(Causes cause) {
 		this.causesRepository.save(cause);
 	}

@@ -17,7 +17,11 @@ import org.springframework.samples.petclinic.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -38,7 +42,8 @@ public class CausesController {
 		this.ownerService = ownerService;
 	}
 	
-	
+
+
 	@GetMapping(value = "/causes")
 	public String causesListing(ModelMap model) {
 		List<Causes> allCauses = this.causeService.findAll();
@@ -50,7 +55,7 @@ public class CausesController {
 	@GetMapping(value = "/causes/{causeId}/details")
 	public String initUpdateOwnerForm(@PathVariable("causeId") int causeId, ModelMap model) {
 		Causes cause = this.causeService.findById(causeId).get();
-//		List<Donation> donations = this.donationService.findByCauseId(causeId);
+
 		Set<Donation> donations = cause.getDonations();
 		
 		model.addAttribute("cause", cause);
@@ -87,4 +92,37 @@ public class CausesController {
 			return "redirect:/causes/{causeId}/details";
 		}
 	}
+	
+	@GetMapping(value = "/causes/create")
+	public String initCreateCausesForm(ModelMap model) {
+		
+		model.put("causes", new Causes());
+		return "causes/createCause";
+	}
+	
+	@PostMapping(value = "/causes/create")
+	public String finishCreateCausesForm(@Valid Causes nuevaCausa,BindingResult result,ModelMap model) {
+		
+		if(result.hasErrors()) {
+			
+			model.put("causes", nuevaCausa);
+			
+			return "causes/createCause";
+		}
+		
+		
+		User userSession = this.userService.getUserSession();
+		
+		
+		nuevaCausa.setUser(userSession);
+		nuevaCausa.setBudgetAchieved(0.0);
+		nuevaCausa.setActive(true);
+		this.userService.saveUser(userSession);
+
+		this.causeService.save(nuevaCausa);
+		
+		return "redirect:/causes";
+	}
+	
+	
 }
