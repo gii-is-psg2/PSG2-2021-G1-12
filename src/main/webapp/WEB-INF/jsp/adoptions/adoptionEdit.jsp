@@ -8,18 +8,42 @@
 
 <petclinic:layout pageName="adoption">
   
-    <form:form modelAttribute="adoptionToEdit" class="form-horizontal" id="add-adoption-form" action="/adoption/${adoption.id}/adoption">
-        <div class="form-group has-feedback"> 	
+       
         <h3>Por favor, detállenos por qué desea adoptar a este animal</h3>
+        
+        <table id="adoptionsTable" class="table table-striped">
+		<thead>
+			<tr>
+				<th style="width: 100px;">Nombre de la mascota</th>
+				<th style="width: 100px;">Especie</th>
+				<th style="width: 100px;">Dirección</th>
+				<th style="width: 100px;">Ciudad</th>
+				<th style="width: 100px">Teléfono</th>
+			</tr>
+		</thead>
+		
+		  <tbody>
+				<tr>
+					<td><c:out value="${adoption.pet.name}" /></td>
+					<td><c:out value="${adoption.pet.type}" /></td>
+					<td><c:out value="${adoption.owner.address}" /></td>
+					<td><c:out value="${adoption.owner.city}" /></td>
+					<td><c:out value="${adoption.owner.telephone}" /></td>
+				</tr>
+		</tbody> 
+	</table>
+	
+	<form:form modelAttribute="description" id="add-adoption-form">
+        <div class="form-group"><div>
+                <input type='hidden' value='${adoptionRequest.owner.id}' name='newOwner'>
+                <input type='hidden' value='${adoptionRequest.adoption.id}' name='adoption'>
+                <petclinic:inputField label="Descripción de la adopción" name="description" />
+                <button class="btn btn-default" type="submit">Solicitar    adopción</button>
+        </div></div>
+    </form:form>
 
   
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-default" type="submit">Enviar petición</button>
-            </div>
+        
    
-    </form:form>
- 
-    
+       
 </petclinic:layout>
