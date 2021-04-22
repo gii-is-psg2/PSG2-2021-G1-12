@@ -17,10 +17,31 @@
             
                 <petclinic:inputField label="Nombre" name="name"/>
                 <petclinic:inputField label="Descripcion" name="description"/>
-                <petclinic:inputField label="Objetivo" name="budgetTarget"/>
+
+ 				<spring:bind path="budgetTarget">
+                       <c:set var="cssGroup" value="form-group ${status.error ? 'has-error' : '' }"/>
+                    <c:set var="valid" value="${not status.error and not empty status.actualValue}"/>
+                    <div class="${cssGroup}">
+                        <label class="col-sm-2 control-label">Cantidad a recaudar</label>
+
+                        <div class="col-sm-10">
+                            <input type="number" name="budgetTarget" value="${cause.budget}" step="0.01">
+                               <c:if test="${valid}">
+                                   <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                            </c:if>
+                            <c:if test="${status.error}">
+                                <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <span class="help-inline">${status.errorMessage}</span>
+                            </c:if>
+                        </div>
+                    </div>
+                   </spring:bind>	
+
+
+
                 <petclinic:inputField label="Organizacion" name="organisation"/>
            
-           
+          
            
            
             <div class="form-group">

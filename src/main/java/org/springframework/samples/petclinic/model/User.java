@@ -57,5 +57,13 @@ public class User{
 	public void setEnabled(boolean value) {
 		this.enabled=value;
 	}
+
+	public Set<Causes> getCauses() {
+		return causes;
+	}
+
+	public void setCauses(Set<Causes> causes) {
+		this.causes = causes;
+	}
 	
 }

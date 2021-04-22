@@ -8,8 +8,10 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "causes")
@@ -22,6 +24,7 @@ public class Causes extends NamedEntity{
 	
 	@Column(name = "budget_target")
 	@NotNull
+	@Min(value=1, message = "Tiene que ser mayor que 1 y sin letras")
 	private Double budgetTarget;
 	
 	@Column(name = "organisation")
@@ -96,6 +99,9 @@ public class Causes extends NamedEntity{
 		this.user = user;
 	}
 
+	public User getUser() {
+		return this.user;
+	}
 	@Override
 	public String toString() {
 		return "Causes [description=" + description + ", budgetTarget=" + budgetTarget + ", organisation="
