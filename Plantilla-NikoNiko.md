@@ -34,18 +34,19 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | margarcac1    | antcammar    | hegriaher     | antoniope33     |
 | ------------- | ------------- | ------------ | ------------- | -------------   |
-| 09/04/2021    | :smile:       |  :smile:     |:neutral_face: |  :smile:        |
+| 09/04/2021    | :smile:       |  :smile:     |:neutral_face: |  :smiley        |
 | 14/04/2021    |     :smile:   |  :worried:   |   -           |       -         |
-| 15/04/2021    |    :smile:    |  :smile:     | :smiley:      |     :smile:     |
+| 15/04/2021    |    :smile:    |  :smile:     | :smiley:      |     :smiley:    |
 | 16/04/2021    |:neutral_face: |  :worried:   |:neutral_face: |    :worried:    |
 | 18/04/2021    |:worried:      |    :worried: | :smiley:      |    -            |
 | 19/04/2021    |-              |   :worried:  |:worried:      |    :worried:    |
-| 20/04/2021    |-              |   :smile:    | :smiley:      |                 |
-| 22/04/2021    |:fearful: |     -       |- |   -   |
-| -             |-               |    -       |-|    -   |
-| -             |-               |    -       |-|    -   |
-| -             |- |    -       |-|    -   |
-| -             |- |    -       |-|    -   |
-| - |- |    -       |-|    -   |
-| - |- |    -       |-|    -   |
+| 20/04/2021    |-              |   :smile:    | :smiley:      |     :smiley:    |
+| 21/04/2021    |-              |      -       |      -        |     :smiley:    |
+| 22/04/2021    |:fearful:      |      -       |      -        |     :worried:   |
+| -             |       -       |      -       |      -        |       -         |
+| -             |       -       |      -       |      -        |       -         |
+| -             |       -       |      -       |      -        |       -         |
+| -             |       -       |      -       |      -        |       -         |
+
+
 ...
