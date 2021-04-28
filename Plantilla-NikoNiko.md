@@ -45,7 +45,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | 22/04/2021    |:fearful:      |      -       |:neutral_face: |     :worried:   |
 | 23/04/2021    | :neutral_face:|     :fearful:      |      -        |       -         |
 | 27/04/2021    |    :smile:    |     :smile:       |      -        |       -         |
-| -             |       -       |      -       |      -        |       -         |
+| 28/04/2021    |   :smile:  |      -       |      -        |       -         |
 | -             |       -       |      -       |      -        |       -         |
 
 
