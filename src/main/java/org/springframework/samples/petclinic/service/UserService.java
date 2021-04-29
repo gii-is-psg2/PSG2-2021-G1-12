@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.repository.UserRepository;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,4 +51,15 @@ public class UserService {
 	public Optional<User> findUser(String username) {
 		return userRepository.findById(username);
 	}
+	
+	public User getUserSession() {
+        User usuario = new User();
+        try {
+              Optional<User> user = findUser(SecurityContextHolder.getContext().getAuthentication().getName());
+              usuario =  user.get();
+          }catch (Exception e) {
+          }
+        return usuario;
+    }
+
 }

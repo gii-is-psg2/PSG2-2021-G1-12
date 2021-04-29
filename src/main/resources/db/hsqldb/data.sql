@@ -10,23 +10,23 @@ INSERT INTO authorities(id,username,authority) VALUES (3,'vet1','veterinarian');
 
 
 INSERT INTO users(username,password,enabled) VALUES ('owner2','0wn3r2',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (4,'owner2','owner2');
+INSERT INTO authorities(id,username,authority) VALUES (4,'owner2','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner3','0wn3r3',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (5,'owner3','owner3');
+INSERT INTO authorities(id,username,authority) VALUES (5,'owner3','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner4','0wn3r4',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (6,'owner4','owner4');
+INSERT INTO authorities(id,username,authority) VALUES (6,'owner4','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner5','0wn3r5',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (7,'owner5','owner5');
+INSERT INTO authorities(id,username,authority) VALUES (7,'owner5','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner6','0wn3r6',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (8,'owner6','owner6');
+INSERT INTO authorities(id,username,authority) VALUES (8,'owner6','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner7','0wn3r7',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (9,'owner7','owner7');
+INSERT INTO authorities(id,username,authority) VALUES (9,'owner7','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner8','0wn3r8',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (10,'owner8','owner8');
+INSERT INTO authorities(id,username,authority) VALUES (10,'owner8','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner9','0wn3r9',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (11,'owner9','owner9');
+INSERT INTO authorities(id,username,authority) VALUES (11,'owner9','owner');
 INSERT INTO users(username,password,enabled) VALUES ('owner10','0wn3r10',TRUE);
-INSERT INTO authorities(id,username,authority) VALUES (12,'owner10','owner10');
+INSERT INTO authorities(id,username,authority) VALUES (12,'owner10','owner');
 
 
 INSERT INTO vets VALUES (1, 'James', 'Carter');
@@ -77,6 +77,18 @@ INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (10, 'Mulligan', '2
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (11, 'Freddy', '2010-03-09', 5, 9);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (12, 'Lucky', '2010-06-24', 2, 10);
 INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (13, 'Sly', '2012-06-08', 1, 10);
+INSERT INTO pets(id,name,birth_date,type_id,owner_id) VALUES (14, 'Perry', '2012-06-08', 4, 10);
+
+INSERT INTO adoptions(id,pet_id,owner_id) VALUES (1, 14, 10);
+INSERT INTO adoptions(id,pet_id,owner_id) VALUES (2, 11, 9);
+INSERT INTO adoptions(id,pet_id,owner_id) VALUES (3, 7, 6);
+
+INSERT INTO adoption_request(id,description,adoption_id,owner_id) VALUES (1, 'Me encanta su nombre.',1 ,1);
+INSERT INTO adoption_request(id,description,adoption_id,owner_id) VALUES (2, 'Me haría mucha compañía.',1 ,2);
+INSERT INTO adoption_request(id,description,adoption_id,owner_id) VALUES (3, 'Tengo una cama perfecta para él.',1 ,3);
+INSERT INTO adoption_request(id,description,adoption_id,owner_id) VALUES (4, 'Sería perfecto para hacerle comañía a mi madre.',1 ,4);
+INSERT INTO adoption_request(id,description,adoption_id,owner_id) VALUES (5, 'Siempre quise tener una mascota así. Además, mi jardín es enorme.',2 ,2);
+
 
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits(id,pet_id,visit_date,description) VALUES (2, 8, '2013-01-02', 'rabies shot');
@@ -88,3 +100,11 @@ INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (2, 2, '2021-04-16
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (3, 5, '2021-10-1', '2021-10-18');
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (4, 7, '2021-07-10', '2021-07-14');
 INSERT INTO bookings(id,pet_id,start_date,finish_date) VALUES (5, 13, '2021-04-22', '2021-05-8');
+
+INSERT INTO causes(id,name,description,budget_target,organisation,active,budget_achieved,user_username) VALUES (1,'Cause 1', 'Descripcion cause 1',27185.32, 'Organisation 1', true, 0.0,'owner1');
+INSERT INTO causes(id,name,description,budget_target,organisation,active,budget_achieved,user_username) VALUES (2, 'Cause 2','Descripcion cause 2', 78637.52, 'Organisation 2', true, 0.0,'owner1');
+INSERT INTO causes(id,name,description,budget_target,organisation,active,budget_achieved,user_username) VALUES (3, 'Cause 3','Descripcion cause 3', 36424.12, 'Organisation 3', true, 0.0,'owner1');
+INSERT INTO causes(id,name,description,budget_target,organisation,active,budget_achieved,user_username) VALUES (4, 'Cause 4', 'Descripcion cause 4',87932.21,'Organisation 4', true, 0.0,'owner1');
+INSERT INTO causes(id,name,description,budget_target,organisation,active,budget_achieved,user_username) VALUES (5, 'Cause 5','Descripcion cause 5', 87543.52, 'Organisation 5', true, 0.0,'owner1');
+
+
