@@ -1,7 +1,10 @@
 package org.springframework.samples.petclinic.web;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Adoption;
 import org.springframework.samples.petclinic.model.AdoptionRequest;
 import org.springframework.samples.petclinic.model.Owner;
@@ -31,6 +34,7 @@ public class AdoptionController {
     private final OwnerService ownerService;
     private final AdoptionRequestService adoptionRequestService;
     private final UserService userService;
+
     
 	public AdoptionController(AdoptionService adoptionService,PetService petService, OwnerService ownerService, AdoptionRequestService adoptionRequestService, UserService userService) {
 		this.petService = petService;
@@ -69,7 +73,7 @@ public class AdoptionController {
         String u1=user.getUsername(); 
         Owner owner = ownerService.findOwnerByUserName(u1);
         adoptionRequest.setOwner(owner);
-        System.out.println(owner);
+        //System.out.println(owner);
         adoptionRequest.setAdoption(a);
     	
     	if (result.hasErrors()) {
@@ -101,4 +105,34 @@ public class AdoptionController {
     	}
 	}
    
+
+   @GetMapping(value="/owners/{ownerId}/pets/{petId}/adoptions/solicitudes")
+    public String solicitudesAdopciones(@Valid Adoption adoption, BindingResult result, @PathVariable("petId") int petId, @PathVariable("ownerId") int ownerId, ModelMap model) {
+	    List<AdoptionRequest> solicitudes= this.adoptionRequestService.findAdoptionRequestByIdPet(petId);
+    	//List<AdoptionRequest> solicitudes= this.adoptionRequestService.findAdoptionRequestByAdoptionPetId(petId);
+    	model.addAttribute("solicitudes",solicitudes);
+    	return "adoptions/adoptionRequestList";
+    	}
+    
+    @GetMapping(value="/adoptions/{adoptionId}/{adoptionRequestId}/aceptar")
+	public String aceptarSolicitudAdopcion(@Valid Adoption adoption, BindingResult result,@PathVariable("adoptionId") int adoptionId, @PathVariable("adoptionRequestId") int adoptionRequestId, ModelMap model) {	
+    	AdoptionRequest adopreq= this.adoptionRequestService.findAdoptionRequestById(adoptionRequestId);
+    	Adoption adop = adopreq.getAdoption();
+    	Pet mascota = adop.getPet();
+    	Owner antiguoOwner = mascota.getOwner();
+    	Owner nuevoOwner = adopreq.getOwner();
+    	nuevoOwner.addPet(mascota);
+    	antiguoOwner.removePet(mascota);
+    	this.adoptionService.deleteAdoption(adop);	
+    	return "redirect:"+ ADOPTION ;
+    }
+    
+    @GetMapping(value="/adoptions/{adoptionId}/{adoptionRequestId}/denegar")
+	public String denegarSolicitudAdopcion(@Valid Adoption adoption, BindingResult result,@PathVariable("adoptionId") int adoptionId, @PathVariable("adoptionRequestId") int adoptionRequestId, ModelMap model) {	
+    	AdoptionRequest adopreq= this.adoptionRequestService.findAdoptionRequestById(adoptionRequestId);
+    	this.adoptionRequestService.deleteAdoptionRequest(adopreq);
+    	return "redirect:"+ "/owners/find" ;
+    }
+    
+    
 }
