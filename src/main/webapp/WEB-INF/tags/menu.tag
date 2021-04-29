@@ -23,15 +23,15 @@
 			<ul class="nav navbar-nav">
 
 				<petclinic:menuItem active="${name eq 'home'}" url="/"
-					title="página de inicio">
+					title="pÃ¡gina de inicio">
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 					<span>Inicio</span>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'owners'}" url="/owners/find"
-					title="Encontrar dueños">
+					title="Encontrar dueÃ±os">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					<span>Encontrar dueños</span>
+					<span>Encontrar dueÃ±os</span>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'vets'}" url="/vets"
@@ -40,7 +40,12 @@
 					<span>Veterinarios</span>
 				</petclinic:menuItem>
 
-
+				<petclinic:menuItem active="${name eq 'adoptions'}" url="/adoptions"
+					title="Adoptions">
+					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+					<span>Adopciones</span>
+        </petclinic:menuItem>
+        
 				<petclinic:menuItem active="${name eq 'causes'}" url="/causes"
 					title="Causas">
 					<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
@@ -67,7 +72,7 @@
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> 
+						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>Â 
 							<strong><sec:authentication property="name" /></strong> <span
 							class="glyphicon glyphicon-chevron-down"></span>
 					</a>
@@ -86,7 +91,7 @@
 											</p>
 											<p class="text-left">
 												<a href="<c:url value="/logout" />"
-													class="btn btn-primary btn-block btn-sm">Cerrar sesión</a>
+													class="btn btn-primary btn-block btn-sm">Cerrar sesiÃ³n</a>
 											</p>
 										</div>
 									</div>
