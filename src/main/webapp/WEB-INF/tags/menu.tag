@@ -23,15 +23,15 @@
 			<ul class="nav navbar-nav">
 
 				<petclinic:menuItem active="${name eq 'home'}" url="/"
-					title="pÃ¡gina de inicio">
+					title="página de inicio">
 					<span class="glyphicon glyphicon-home" aria-hidden="true"></span>
 					<span>Inicio</span>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'owners'}" url="/owners/find"
-					title="Encontrar dueÃ±os">
+					title="Encontrar dueños">
 					<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-					<span>Encontrar dueÃ±os</span>
+					<span>Encontrar dueños</span>
 				</petclinic:menuItem>
 
 				<petclinic:menuItem active="${name eq 'vets'}" url="/vets"
@@ -72,7 +72,7 @@
 				</sec:authorize>
 				<sec:authorize access="isAuthenticated()">
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span>Â 
+						data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> 
 							<strong><sec:authentication property="name" /></strong> <span
 							class="glyphicon glyphicon-chevron-down"></span>
 					</a>
@@ -91,7 +91,7 @@
 											</p>
 											<p class="text-left">
 												<a href="<c:url value="/logout" />"
-													class="btn btn-primary btn-block btn-sm">Cerrar sesiÃ³n</a>
+													class="btn btn-primary btn-block btn-sm">Cerrar sesión</a>
 											</p>
 										</div>
 									</div>
