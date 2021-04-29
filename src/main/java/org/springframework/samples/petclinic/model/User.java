@@ -1,5 +1,7 @@
 package org.springframework.samples.petclinic.model;
 
+import java.awt.event.FocusEvent.Cause;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -7,9 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +22,12 @@ public class User{
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Authorities> authorities;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private Set<Donation> donations;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private Set<Causes> causes;
 	
 	public String getUsername() {
 		return username;
@@ -52,4 +57,13 @@ public class User{
 	public void setEnabled(boolean value) {
 		this.enabled=value;
 	}
+
+	public Set<Causes> getCauses() {
+		return causes;
+	}
+
+	public void setCauses(Set<Causes> causes) {
+		this.causes = causes;
+	}
+	
 }
