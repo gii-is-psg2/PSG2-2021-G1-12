@@ -12,8 +12,9 @@
         <thead>
         <tr>
             <th style="width: 150px;">Nombre</th>
-            <th style="width: 150px;">Suma</th>
-            <th style="width: 200px;">Objetivo</th>
+            <th style="width: 150px;">Recaudado (en euros)</th>
+            <th style="width: 200px;">Objetivo (en euros)</th>
+            <th style="width: 100px;">Estado</th>
             <th style="width: 200px;">Acciones</th>
            
         </tr>
@@ -30,6 +31,16 @@
                 </td>
                 <td>
                     <c:out value="${cause.budgetTarget}"/>
+                </td>
+                <td>
+                <c:choose>
+                	<c:when test="${cause.active}">
+                		<c:out value="Activa"/>
+                	</c:when>
+                	<c:otherwise>
+                		<c:out value="Cerrada"/>
+                	</c:otherwise>
+                </c:choose>
                 </td>
                 <td>
                 <c:if test = "${cause.active}">
