@@ -24,7 +24,7 @@
                        <c:set var="cssGroup" value="form-group ${status.error ? 'has-error' : '' }"/>
                     <c:set var="valid" value="${not status.error and not empty status.actualValue}"/>
                     <div class="${cssGroup}">
-                        <label class="col-sm-2 control-label">Cantidad a donar</label>
+                        <label class="col-sm-2 control-label">Cantidad a donar (en euros)</label>
 
                         <div class="col-sm-10">
                             <input type="number" name="amount" value="${donation.amount}" step="0.01">

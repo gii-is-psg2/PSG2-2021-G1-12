@@ -6,6 +6,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="causes">
+
     <h2>Causa</h2>
 
     <table id="ownersTable" class="table table-striped">
@@ -13,9 +14,10 @@
         <tr>
             <th style="width: 150px;">Nombre</th>
             <th style="width: 150px;">Descripcion</th>
-            <th style="width: 200px;">Objetivo</th>
-            <th style="width: 200px;">Total Recaudado</th>
+            <th style="width: 200px;">Objetivo (en euros)</th>
+            <th style="width: 200px;">Total Recaudado (en euros)</th>
             <th style="width: 200px;">Organizacion</th>
+            <th style="width: 100px;">Estado</th>
            
         </tr>
         </thead>
@@ -35,6 +37,16 @@
                 </td>
                 <td>
                     <c:out value="${cause.organisation}"/>
+                </td>
+                <td>
+                	<c:choose>
+                	<c:when test="${cause.active}">
+                		<c:out value="Activa"/>
+                	</c:when>
+                	<c:otherwise>
+                		<c:out value="Cerrada"/>
+                	</c:otherwise>
+                </c:choose>
                 </td>   
             </tr>
         </tbody>
