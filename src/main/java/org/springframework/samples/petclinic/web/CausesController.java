@@ -86,10 +86,23 @@ public class CausesController {
 			this.donationService.save(donation);
 			
 			Causes cause = this.causeService.findById(causeId).get();
-			cause.setBudgetAchieved(cause.getBudgetAchieved()+donation.getAmount());
+			double budgetAchieved = cause.getBudgetAchieved()+donation.getAmount();
+			Double budgetTarget = cause.getBudgetTarget();
+			Double diff = (budgetAchieved-budgetTarget);
+			
+			if(budgetAchieved > budgetTarget) {
+				String message = "Su donación sobrepasa la cantidad objetivo de la causa. Se le ha devuelto la diferencia ("+String.format("%.2f", diff)+") en el importe";
+				model.addAttribute("message",message);
+				budgetAchieved = budgetTarget;
+			}
+			cause.setBudgetAchieved(budgetAchieved);
 			this.causeService.save(cause);
 			
-			return "redirect:/causes/{causeId}/details";
+			Set<Donation> donations = cause.getDonations();
+			model.addAttribute("cause", cause);
+			model.addAttribute("donations", donations);
+			return "causes/causeDetail";
+//			return "redirect:/causes/{causeId}/details";
 		}
 	}
 	

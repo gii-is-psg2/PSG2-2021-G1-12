@@ -81,6 +81,12 @@ public class AdoptionController {
             model.addAttribute("pet", petSeraAdoptada);
 			return VIEWS_DESCRIPTION;
 		}
+    	else if(adoptionRequest.getOwner().equals(owner)){
+    		model.addAttribute("adoptionRequest",adoptionRequest);
+            model.addAttribute("pet", petSeraAdoptada);
+            model.addAttribute("message", "No puedes adoptar a tu propia mascota");
+			return VIEWS_DESCRIPTION;
+    	}
 		else {
         	this.adoptionRequestService.saveAdoptionRequest(adoptionRequest);
 		}
