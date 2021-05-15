@@ -1,7 +1,5 @@
 package org.springframework.samples.petclinic.model;
 
-import java.awt.event.FocusEvent.Cause;
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
