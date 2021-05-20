@@ -67,9 +67,11 @@ public class Pet extends NamedEntity {
 	@OneToMany(cascade = CascadeType.ALL,mappedBy = "pet")
 	private Set<Visit> visits;
 	
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet", fetch = FetchType.LAZY)
 	private Set<Booking> bookings;
 	
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToOne(mappedBy = "pet")
 	private Adoption adoption;
 
