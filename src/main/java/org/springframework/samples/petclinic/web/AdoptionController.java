@@ -1,5 +1,6 @@
 package org.springframework.samples.petclinic.web;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -46,7 +47,17 @@ public class AdoptionController {
     
 	@GetMapping(value = {"/adoptions"})
 	public String showAdoptionList(final ModelMap model) {
-		model.addAttribute("adoption", this.adoptionService.findAll());
+		List<Adoption> allAdoptions = this.adoptionService.findAll();
+		List<Adoption> adoptions = new ArrayList<>();
+		User user = userService.getUserSession();
+        String u1=user.getUsername(); 
+        Owner owner = ownerService.findOwnerByUserName(u1);
+        for(Adoption adoption:allAdoptions) {
+        	if(!adoption.getPet().getOwner().equals(owner))
+        		adoptions.add(adoption);
+        }
+		
+		model.addAttribute("adoption", adoptions);
 		return "adoptions/adoptionsList";
 	}
 	
