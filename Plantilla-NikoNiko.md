@@ -57,11 +57,11 @@ In the retrospective meeting, the team has a discussion about those results.
 | ------------- | ------------- | ------------ | ------------- | -------------   |
 | 07/05/2021    |     :smile:   |     :smile:  |     :smile:   |    :smile:      |
 | 09/05/2021    |     :smile:   |     :smile:  |     :smile:   |    :smile:      |
-| 14/05/2021    |     :smile:   |      :smile:        |     :smile:   |                 |
-| 15/05/2021    |     :smile:   |      :worried:        |               |                 |
+| 14/05/2021    |     :smile:   |  :smile:     |     :smile:   |                 |
+| 15/05/2021    |     :smile:   | :worried:    |               |                 |
 | 17/05/2021    |     :smile:   |    :smile:   |:neutral_face: |     :smile:     |
 | 18/05/2021    |     -         |              |    :smile:    |                 |
-| 19/05/2021    |   :smile:     |      :neutral_face:        |               |                 |
-| 20/05/2021    |    :angry:    | :angry:       |               |                 |
+| 19/05/2021    |   :smile:     |:neutral_face:|:neutral_face: |                 |
+| 20/05/2021    |    :angry:    | :angry:      |    :smile     |                 |
 
 ...
