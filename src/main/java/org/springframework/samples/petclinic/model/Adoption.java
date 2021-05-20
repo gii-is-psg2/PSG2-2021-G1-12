@@ -9,6 +9,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 
 @Entity
 @Table(name = "adoptions")
@@ -18,10 +21,12 @@ public class Adoption extends BaseEntity {
 	@OneToOne
 	private Pet pet;
 	
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@JoinColumn(name = "owner_id")
 	@OneToOne
 	private Owner owner;
 	
+	@OnDelete(action = OnDeleteAction.CASCADE)
 	@OneToMany (cascade = CascadeType.ALL, mappedBy="adoption")
 	private List<AdoptionRequest> adoptionRequest;
 
@@ -47,5 +52,6 @@ public class Adoption extends BaseEntity {
 		return "Adoption [pet=" + pet + ", owner=" + owner + ", adoptionRequest=" + adoptionRequest + "]";
 	}
 
+	
 
 }

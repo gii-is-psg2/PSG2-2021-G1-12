@@ -34,6 +34,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class OwnerService {
 
+	@Autowired
 	private OwnerRepository ownerRepository;	
 	
 	@Autowired
