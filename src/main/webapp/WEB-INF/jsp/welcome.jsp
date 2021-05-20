@@ -8,7 +8,7 @@
     <h2>Bienvenido a PSG2-2021-G1-12 Petclinic</h2>
     <div class="row">
         <div class="col-md-12">
-            <spring:url value="/resources/images/logo_us.png" htmlEscape="true" var="petsImage"/>
+            <spring:url value="/resources/images/pets.png" htmlEscape="true" var="petsImage"/>
             <img class="img-responsive" src="${petsImage}"/>
         </div>
     </div>
