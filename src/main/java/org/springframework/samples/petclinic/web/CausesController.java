@@ -12,16 +12,11 @@ import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.User;
 import org.springframework.samples.petclinic.service.CausesService;
 import org.springframework.samples.petclinic.service.DonationService;
-import org.springframework.samples.petclinic.service.OwnerService;
 import org.springframework.samples.petclinic.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -32,14 +27,12 @@ public class CausesController {
 	private final CausesService causeService;
 	private final DonationService donationService;
 	private final UserService userService;
-	private final OwnerService ownerService;
 	
 	@Autowired
-	public CausesController(CausesService causeService, DonationService donationService, UserService userService, OwnerService ownerService) {
+	public CausesController(CausesService causeService, DonationService donationService, UserService userService) {
 		this.causeService = causeService;
 		this.donationService = donationService;
 		this.userService = userService;
-		this.ownerService = ownerService;
 	}
 	
 
@@ -136,6 +129,14 @@ public class CausesController {
 		
 		return "redirect:/causes";
 	}
+	
+	@GetMapping("/causes/{causeId}/details/delete")
+	public String processDeleteCause(@PathVariable("causeId") int causeId) {
+		this.causeService.deleteCauseById(causeId);
+		return "redirect:/causes";
+	}
+	
+	
 	
 	
 }

@@ -54,6 +54,12 @@
                         <spring:param name="causeId" value="${cause.id}"/>
                     </spring:url>
                     <a href="${fn:escapeXml(detailsUrl)}"><c:out value="Ver detalles"/></a>
+                    
+                    <spring:url value="/causes/{causeId}/details/delete" var="deleteUrl">
+                        <spring:param name="causeId" value="${cause.id}"/>
+                    </spring:url>
+                    <a href="${fn:escapeXml(deleteUrl)}"> <c:out value = "Borrar causa"/></a>
+                    
                 </td>   
             </tr>		
 		</c:forEach>
