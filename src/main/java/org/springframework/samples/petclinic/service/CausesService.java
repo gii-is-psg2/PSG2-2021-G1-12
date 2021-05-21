@@ -8,7 +8,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Causes;
 import org.springframework.samples.petclinic.repository.CausesRepository;
-import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,8 +23,9 @@ public class CausesService {
 		this.causesRepository.save(cause);
 	}
 	
-	public void delete(Causes cause) {
-		this.causesRepository.delete(cause);
+	@Transactional
+	public void deleteCauseById(Integer id) {
+		this.causesRepository.deleteCauseById(id);
 	}
 	
 	@Transactional
