@@ -68,5 +68,6 @@ In the retrospective meeting, the team has a discussion about those results.
 | 24/05/2021    |    :smile:    | :smile:      |    -          |    -            |
 | 25/05/2021    |    :smile:    | :smile:      |    -          |    -            |
 | 27/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
+| 28/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
 
 ...
