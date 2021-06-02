@@ -69,14 +69,7 @@ In the retrospective meeting, the team has a discussion about those results.
 | 25/05/2021    |    :smile:    | :smile:      |    -          |    -            |
 | 27/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
 | 28/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
-| 29/05/2021    |    -          | -            |    -          |     :worried:   |
+| 29/05/2021    |    -          | -            |:neutral_face: |     :worried:   |
 | 30/05/2021    |          -    | -            |    -          | :neutral_face:  |
 | 31/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
 ...
-
-## Sprint 5
-
-| Day           | margarcac1    | antcammar    | hegriaher     | antoniope33     |
-| ------------- | ------------- | ------------ | ------------- | -------------   |
-| 02/06/2021    |     :smile:   |     :smile:  |     :smile:   |    :smile:      |
-
