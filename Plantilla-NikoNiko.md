@@ -72,4 +72,9 @@ In the retrospective meeting, the team has a discussion about those results.
 | 29/05/2021    |    -          | -            |:neutral_face: |     :worried:   |
 | 30/05/2021    |          -    | -            |    -          | :neutral_face:  |
 | 31/05/2021    |    :smile:    | :smile:      |    :smile:    |     :smile:     |
-...
+
+## Sprint 4
+
+| Day           | margarcac1    | antcammar    | hegriaher     | antoniope33     |
+| ------------- | ------------- | ------------ | ------------- | -------------   |
+| 07/05/2021    |     :smile:   |     :smile:  |     :smile:   |    :smile:      |
